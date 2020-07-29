@@ -46,7 +46,8 @@ public class SwiftBarcodeScanPlugin: NSObject, FlutterPlugin, BarcodeScannerView
     }
     
     private func closeScreen(){
-        hostViewController?.dismissViewControllerAnimated(true) {
+        
+        hostViewController?.dismiss(animated: false) {
             print("Dismissing Loader view Controller")
         }
     }
