@@ -53,7 +53,7 @@ class ChannelHandler(private val activityHelper: ActivityHelper
     @Keep
     @Suppress("unused", "UNUSED_PARAMETER")
     fun closeScreen(call: MethodCall, result: MethodChannel.Result) {
-        activityHelper.activity?.finish()
+        activityHelper.closeBarcodeScannerActivity()
     }
 
     @Keep

@@ -38,13 +38,17 @@ class BarcodeScannerActivity : Activity(), ZXingScannerView.ResultHandler {
                 Protos.BarcodeFormat.qr to BarcodeFormat.QR_CODE,
                 Protos.BarcodeFormat.upce to BarcodeFormat.UPC_E
         )
+        var barcodeScannerActivity: BarcodeScannerActivity? = null
 
+        fun getInstance(): BarcodeScannerActivity? {
+            return barcodeScannerActivity
+        }
     }
 
     // region Activity lifecycle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        barcodeScannerActivity = this
         config = Protos.Configuration.parseFrom(intent.extras!!.getByteArray(EXTRA_CONFIG))
     }
 

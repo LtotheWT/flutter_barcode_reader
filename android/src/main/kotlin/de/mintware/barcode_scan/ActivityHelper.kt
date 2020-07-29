@@ -37,6 +37,11 @@ class ActivityHelper(private var applicationContext: Context?,
         val intent = Intent(applicationContext, BarcodeScannerActivity::class.java)
         intent.putExtra(BarcodeScannerActivity.EXTRA_CONFIG, config.toByteArray())
         activity!!.startActivityForResult(intent, REQ_START_SCAN)
+
+    }
+
+    fun closeBarcodeScannerActivity() {
+        BarcodeScannerActivity.getInstance()?.finish()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
