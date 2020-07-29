@@ -25,6 +25,8 @@ public class SwiftBarcodeScanPlugin: NSObject, FlutterPlugin, BarcodeScannerView
         } else if ("requestCameraPermission" == call.method) {
             result(false)
         } else if("closeScreen" == call.method){
+            closeScreen()
+        }else {
             result(FlutterMethodNotImplemented)
         }
     }
