@@ -89,4 +89,8 @@ class BarcodeScanner {
   static Future<int> get numberOfCameras {
     return _channel.invokeMethod('numberOfCameras');
   }
+
+  static closeScreen() {
+    _channel.invokeMethod('closeScreen');
+  }
 }

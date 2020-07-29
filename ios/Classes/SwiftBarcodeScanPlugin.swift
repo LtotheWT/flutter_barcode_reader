@@ -24,7 +24,7 @@ public class SwiftBarcodeScanPlugin: NSObject, FlutterPlugin, BarcodeScannerView
             result(AVCaptureDevice.devices(for: .video).count)
         } else if ("requestCameraPermission" == call.method) {
             result(false)
-        } else {
+        } else if("closeScreen" == call.method){
             result(FlutterMethodNotImplemented)
         }
     }
@@ -43,6 +43,12 @@ public class SwiftBarcodeScanPlugin: NSObject, FlutterPlugin, BarcodeScannerView
         }
         scannerViewController.delegate = self
         hostViewController?.present(navigationController, animated: false)
+    }
+    
+    private func closeScreen(){
+        hostViewController?.dismissViewControllerAnimated(true) {
+            print("Dismissing Loader view Controller")
+        }
     }
     
     private func getPayload<T : SwiftProtobuf.Message>(call: FlutterMethodCall) -> T? {
