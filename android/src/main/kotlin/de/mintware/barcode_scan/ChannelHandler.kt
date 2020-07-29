@@ -52,6 +52,12 @@ class ChannelHandler(private val activityHelper: ActivityHelper
 
     @Keep
     @Suppress("unused", "UNUSED_PARAMETER")
+    fun closeScreen(call: MethodCall, result: MethodChannel.Result) {
+        activityHelper.activity?.finish()
+    }
+
+    @Keep
+    @Suppress("unused", "UNUSED_PARAMETER")
     fun requestCameraPermission(call: MethodCall, result: MethodChannel.Result) {
         result.success(activityHelper.requestCameraAccessIfNecessary(sink))
     }
